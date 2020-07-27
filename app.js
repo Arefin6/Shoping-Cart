@@ -20,7 +20,11 @@ const plusBtn = document.getElementById(id).addEventListener("click",function(){
 function decrementQty (id,qtyId,priceId,priceDeafault) {
     let minusBtn = document.getElementById(id).addEventListener('click',function(){
         let qty = document.getElementById(qtyId).value;
-        let qtyNumber = parseInt(qty);
+        if(qty<=1){
+          alert("Quantity has to be positive");
+        }
+        else{
+          let qtyNumber = parseInt(qty);
           let minus = qtyNumber - 1;
           document.getElementById(qtyId).value=(minus);
     
@@ -32,6 +36,8 @@ function decrementQty (id,qtyId,priceId,priceDeafault) {
 
           let sub = subTotal();
           document.getElementById('sub-total' ).innerText = sub;
+        }
+       
          //console.log(test);    
   });
 }
